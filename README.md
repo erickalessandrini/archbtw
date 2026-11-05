@@ -62,24 +62,33 @@ My Arch Linux desktop: Hyprland on Wayland, themed end-to-end in one neon palett
 
 | Keys | Action |
 |---|---|
-| `Super + Q` / `E` / `R` / `B` | terminal / file manager / launcher / browser |
+| `Super + Q` | terminal (kitty) |
+| `Super + E` | file manager (Thunar) |
+| `Super + R` | app launcher (rofi) |
+| `Super + B` | browser (LibreWolf) |
 | `Super + C` | close window |
 | `Super + F` | toggle floating |
-| `Super + P` / `J` | pseudo-tile / toggle split |
+| `Super + P` | pseudo-tile |
+| `Super + J` | toggle split |
 | `Super + arrows` | move focus |
-| `Super + LMB / RMB drag` | move / resize window |
+| `Super + left-drag` | move window |
+| `Super + right-drag` | resize window |
 | `Super + 1…0` | go to workspace |
 | `Super + Shift + 1…0` | move window to workspace |
-| `Super + S` / `Shift + S` | scratchpad toggle / send to scratchpad |
+| `Super + S` | toggle scratchpad |
+| `Super + Shift + S` | send window to scratchpad |
 | `Super + L` | lock |
 | `Super + Escape` | power menu |
 | `Super + W` | next wallpaper |
 | `Super + V` | clipboard history |
 | `Super + M` | exit Hyprland |
-| `Print` / `Shift + Print` / `Ctrl + Print` | region → clipboard / annotate / full screen → file |
+| `Print` | screenshot region → clipboard |
+| `Shift + Print` | screenshot region → annotate |
+| `Ctrl + Print` | full screenshot → file |
 | Media keys | volume, mic, brightness (with OSD), playback |
-
-Taskbar icons: left-click focus, middle-click close, right-click maximize.
+| Taskbar: left-click | focus window |
+| Taskbar: right-click | maximize window (keeps the bar visible) |
+| Taskbar: middle-click | close window |
 
 ## Install
 
