@@ -10,6 +10,19 @@ My Arch Linux desktop: Hyprland on Wayland, themed end-to-end in one neon palett
 |---|---|---|
 | ![terminal](screenshots/terminal.png) | ![rofi launcher](screenshots/app-search.png) | ![hyprlock](screenshots/lockscreen.png) |
 
+## How this box was built
+
+1. **Hardware:** a Dell Latitude 7490, bought used with no drive. I added an NVMe SSD.
+2. **OS:** Arch Linux, installed by hand from the wiki. No `archinstall`.
+3. **Disk:** LUKS2 full-disk encryption on the root partition, unlocked in the initramfs with `sd-encrypt`.
+4. **Boot:** systemd-boot, with `rd.luks.options=discard` so TRIM reaches the SSD.
+5. **Login:** greetd with tuigreet on the console. No display manager.
+6. **Desktop:** Hyprland on Wayland.
+7. **Tooling:** the BlackArch repo is added to pacman, so security tools install on demand, not all at once.
+8. **Isolation:** Kali runs in a VM for work I keep off the host.
+9. **Dotfiles:** managed with GNU stow, one package per program.
+10. **Workflow:** the config was iterated over SSH from a separate VM running Claude Code. The laptop holds no GitHub or AI account credentials. Commits and pushes happen on the VM.
+
 ## Stack
 
 | Role | Tool |
