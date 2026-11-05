@@ -3,7 +3,7 @@
 # Order: packages -> backups -> greetd -> plymouth theme -> kernel cmdline -> mkinitcpio HOOKS -> initramfs LAST.
 set -euo pipefail
 [[ $EUID -eq 0 ]] || { echo "run with sudo"; exit 1; }
-U=ea2c; H=/home/$U; S=$H/dotfiles/system
+U="${SUDO_USER:-$USER}"; H=$(getent passwd "$U" | cut -d: -f6); S=$H/dotfiles/system
 B=$H/dotfiles-backup/system-$(date +%F-%H%M%S); mkdir -p "$B/loader-entries" "$B/initramfs"
 P=/usr/share/plymouth/themes/cyberpunk-neon
 VT_RED=0,255,0,249,10,234,0,215,19,255,0,249,10,234,0,255

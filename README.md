@@ -107,10 +107,8 @@ cd ~/dotfiles
 stow awww btop cava fastfetch gtk hypr hyprlock kitty mako rofi scripts starship swappy swayosd waybar wlogout zsh
 ```
 
-Optional, root-level (greetd, Plymouth theme, kernel cmdline, initramfs). Read it first: it edits your boot config, makes backups, and sets `U=ea2c` at the top, so change that to your username.
+Optional, root-level (greetd, Plymouth theme, kernel cmdline, initramfs). Read it first: it edits your boot config and makes backups. It works out your user from `sudo`, so run it with `sudo`, not from a root shell.
 
 ```sh
 sudo bash ~/dotfiles/system/install-root.sh
 ```
-
-Note: `hyprlock.conf` also uses `/home/ea2c/` paths. Change them to your home.
