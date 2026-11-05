@@ -92,6 +92,8 @@ My Arch Linux desktop: Hyprland on Wayland, themed end-to-end in one neon palett
 
 ## Install
 
+Assumes a working Arch install with an AUR helper (`yay` or `paru`; the commands below use `yay`).
+
 Official repos:
 
 ```sh
@@ -121,6 +123,8 @@ Optional, root-level (greetd, Plymouth theme, kernel cmdline, initramfs). Read i
 ```sh
 sudo bash ~/dotfiles/system/install-root.sh
 ```
+
+**Rollback:** backups go to `~/dotfiles-backup/system-<timestamp>/`. If the new entry won't boot, pick **"Arch Linux (no splash, rescue)"** in the boot menu, then run `sudo cp ~/dotfiles-backup/system-<timestamp>/loader-entries/*.conf /boot/loader/entries/`. The same folder holds `mkinitcpio.conf` and the old initramfs images.
 
 ## License
 
