@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# clipmenu — rofi picker over cliphist history
+set -euo pipefail
+sel=$(cliphist list | rofi -dmenu -i -p "󰅌 clip" -display-columns 2) || exit 0
+printf '%s' "$sel" | cliphist decode | wl-copy

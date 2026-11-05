@@ -1,0 +1,12 @@
+# backups and editor junk
+*.bak
+*.bak-*
+*~
+*.swp
+*.swo
+.DS_Store
+# screenshots: only the reviewed, redacted README images are tracked
+screenshots/*
+!screenshots/terminal.png
+!screenshots/app-search.png
+!screenshots/lockscreen.png

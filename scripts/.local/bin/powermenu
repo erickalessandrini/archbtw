@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# powermenu — wlogout if installed, rofi fallback otherwise (Cyberpunk Neon)
+set -euo pipefail
+if command -v wlogout >/dev/null; then
+    pgrep -x wlogout >/dev/null && exit 0
+    exec wlogout --protocol layer-shell -b 5 -T 380 -B 380
+fi
+choice=$(printf '󰌾  Lock\n󰍃  Logout\n󰤄  Suspend\n󰜉  Reboot\n󰐥  Shutdown\n' \
+    | rofi -dmenu -i -p "󰐥 power" -no-custom) || exit 0
+case "$choice" in
+    *Lock)     pidof hyprlock || hyprlock ;;
+    *Logout)   hyprctl dispatch 'hl.dsp.exit()' ;;
+    *Suspend)  systemctl suspend ;;
+    *Reboot)   systemctl reboot ;;
+    *Shutdown) systemctl poweroff ;;
+esac

@@ -1,0 +1,21 @@
+# mako — Cyberpunk Neon
+font=JetBrainsMono Nerd Font 11
+anchor=top-right
+margin=10
+padding=12
+width=360
+border-size=2
+border-radius=10
+default-timeout=5000
+icons=1
+max-icon-size=48
+icon-path=/usr/share/icons/Papirus-Dark
+
+background-color=#000b1e
+text-color=#d7fffe
+border-color=#00b8ff
+progress-color=over #0a1428
+
+[urgency=high]
+border-color=#ea00d9
+default-timeout=0

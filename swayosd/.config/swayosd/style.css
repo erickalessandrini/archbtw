@@ -1,0 +1,13 @@
+/* swayosd — Cyberpunk Neon */
+window#osd {
+    border-radius: 16px;
+    border: 2px solid #00b8ff;
+    background: rgba(0, 11, 30, 0.88);
+    padding: 12px 18px;
+}
+window#osd #container { margin: 6px; }
+window#osd image, window#osd label { color: #00ff9f; font-family: "JetBrainsMono Nerd Font"; }
+window#osd progressbar:disabled, window#osd image:disabled { opacity: 0.5; }
+window#osd progressbar { min-height: 8px; border-radius: 999px; background: transparent; border: none; }
+window#osd trough { min-height: inherit; border-radius: inherit; border: none; background: #133e7c; }
+window#osd progress { min-height: inherit; border-radius: inherit; border: none; background: #00ff9f; }

@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# osd — media keys via swayosd when its server is up, plain wpctl/brightnessctl otherwise
+set -uo pipefail
+if command -v swayosd-client >/dev/null && pgrep -x swayosd-server >/dev/null; then
+    case "$1" in
+        vol-up)   exec swayosd-client --output-volume raise --max-volume 100 ;;
+        vol-down) exec swayosd-client --output-volume lower ;;
+        mute)     exec swayosd-client --output-volume mute-toggle ;;
+        mic)      exec swayosd-client --input-volume mute-toggle ;;
+        bri-up)   exec swayosd-client --brightness raise ;;
+        bri-down) exec swayosd-client --brightness lower ;;
+    esac
+fi
+case "$1" in
+    vol-up)   wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+ ;;
+    vol-down) wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- ;;
+    mute)     wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle ;;
+    mic)      wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle ;;
+    bri-up)   brightnessctl -e4 -n2 set 5%+ ;;
+    bri-down) brightnessctl -e4 -n2 set 5%- ;;
+    *) echo "usage: osd vol-up|vol-down|mute|mic|bri-up|bri-down" >&2; exit 2 ;;
+esac

@@ -1,0 +1,35 @@
+/* rofi — Cyberpunk Neon */
+* {
+  base:     #000b1e;
+  surface0: #0a1428;
+  overlay0: #0abdc6;
+  text:     #d7fffe;
+  mauve:    #00ff9f;
+  blue:     #00b8ff;
+  red:      #ff2a6d;
+  background-color: transparent;
+  text-color: @text;
+}
+window {
+  width: 600px;
+  border: 2px;
+  border-color: @mauve;
+  border-radius: 12px;
+  background-color: @base;
+}
+mainbox      { padding: 12px; spacing: 10px; children: [ inputbar, mode-switcher, message, listview ]; }
+inputbar     { children: [ prompt, entry ]; background-color: @surface0; border-radius: 8px; padding: 8px 12px; spacing: 10px; }
+prompt       { text-color: @mauve; }
+entry        { placeholder: "Search…"; placeholder-color: @overlay0; cursor: text; }
+mode-switcher { spacing: 6px; }
+button       { padding: 6px; border-radius: 8px; background-color: @surface0; text-color: @overlay0; }
+button selected { background-color: @mauve; text-color: @base; }
+message      { background-color: @surface0; border-radius: 8px; padding: 8px; }
+listview     { lines: 8; columns: 1; spacing: 4px; fixed-height: true; scrollbar: false; }
+element      { padding: 6px 10px; border-radius: 8px; spacing: 10px; }
+element normal.normal, element alternate.normal { background-color: transparent; text-color: @text; }
+element normal.urgent, element alternate.urgent { text-color: @red; }
+element normal.active, element alternate.active { text-color: @blue; }
+element selected.normal { background-color: @surface0; text-color: @mauve; }
+element-icon { size: 22px; }
+element-text { text-color: inherit; vertical-align: 0.5; }

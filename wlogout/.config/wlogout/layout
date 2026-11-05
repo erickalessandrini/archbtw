@@ -1,0 +1,5 @@
+{ "label": "lock",     "action": "pidof hyprlock || hyprlock",       "text": "󰌾\nLock",     "keybind": "l" }
+{ "label": "logout",   "action": "hyprctl dispatch 'hl.dsp.exit()'", "text": "󰍃\nLogout",   "keybind": "e" }
+{ "label": "suspend",  "action": "systemctl suspend",                "text": "󰤄\nSuspend",  "keybind": "u" }
+{ "label": "reboot",   "action": "systemctl reboot",                 "text": "󰜉\nReboot",   "keybind": "r" }
+{ "label": "shutdown", "action": "systemctl poweroff",               "text": "󰐥\nShutdown", "keybind": "s" }

@@ -1,0 +1,8 @@
+[terminal]
+vt = 1
+
+[default_session]
+# tuigreet, Cyberpunk Neon. Named colors resolve through the VT palette set on the kernel cmdline
+# (vt.default_red/grn/blu), so green = #00ff9f, magenta = #ea00d9, cyan = #00b8ff, etc.
+command = "tuigreet --time --time-format '%a %d %b  %H:%M' --remember --remember-session --asterisks --greet-align left --greeting \"$(cat /etc/greetd/banner.txt)\" --theme 'border=magenta;text=cyan;prompt=green;time=yellow;action=blue;button=magenta;container=black;input=white;greet=green;title=green' --cmd start-hyprland"
+user = "greeter"

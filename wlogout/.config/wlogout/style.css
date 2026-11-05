@@ -1,0 +1,18 @@
+/* wlogout — Cyberpunk Neon */
+* { background-image: none; box-shadow: none; font-family: "JetBrainsMono Nerd Font"; }
+window { background-color: rgba(0, 11, 30, 0.55); }
+button {
+    font-size: 22px;
+    color: #d7fffe;
+    background-color: rgba(10, 20, 40, 0.85);
+    border: 2px solid #133e7c;
+    border-radius: 18px;
+    margin: 10px;
+    transition: all 0.15s ease-in-out;
+}
+button:focus, button:hover { color: #000b1e; border-color: #00ff9f; background-color: #00ff9f; }
+#lock:hover,     #lock:focus     { background-color: #00b8ff; border-color: #00b8ff; }
+#logout:hover,   #logout:focus   { background-color: #f9f002; border-color: #f9f002; }
+#suspend:hover,  #suspend:focus  { background-color: #00ff9f; border-color: #00ff9f; }
+#reboot:hover,   #reboot:focus   { background-color: #ea00d9; border-color: #ea00d9; }
+#shutdown:hover, #shutdown:focus { background-color: #ff2a6d; border-color: #ff2a6d; }

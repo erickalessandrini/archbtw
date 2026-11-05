@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+# wallpaper-next — cycle ~/Pictures/wallpapers with an awww (formerly swww) transition.
+# Keeps ~/.cache/current-wallpaper -> current image, which hyprlock uses as its background.
+set -euo pipefail
+
+DIR="${WALLPAPER_DIR:-$HOME/Pictures/wallpapers}"
+STATE="${XDG_CACHE_HOME:-$HOME/.cache}/current-wallpaper"
+
+mapfile -t walls < <(find "$DIR" -maxdepth 1 -type f \( -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.webp' \) | sort)
+(( ${#walls[@]} )) || { echo "wallpaper-next: no images in $DIR" >&2; exit 1; }
+
+# make sure the daemon is up and answering
+if ! awww query >/dev/null 2>&1; then
+    pgrep -x awww-daemon >/dev/null || { awww-daemon >/dev/null 2>&1 & disown; }
+    for _ in $(seq 50); do awww query >/dev/null 2>&1 && break; sleep 0.1; done
+fi
+
+current="$(readlink "$STATE" 2>/dev/null || true)"
+next="${walls[0]}"
+for i in "${!walls[@]}"; do
+    if [[ "${walls[$i]}" == "$current" ]]; then
+        next="${walls[$(( (i + 1) % ${#walls[@]} ))]}"
+        break
+    fi
+done
+
+types=(wipe grow)
+awww img "$next" \
+    --transition-type "${types[RANDOM % 2]}" \
+    --transition-duration 1.5 \
+    --transition-fps 60 \
+    --transition-angle 30 \
+    --transition-pos center
+
+mkdir -p "$(dirname "$STATE")"
+ln -sfn "$next" "$STATE"

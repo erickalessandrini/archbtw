@@ -1,0 +1,118 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+# Cyberpunk Neon powerline — colors live in [palettes.cyberpunk_neon]
+palette = "cyberpunk_neon"
+add_newline = true
+
+format = """
+[](fg:neon)\
+$os\
+$username\
+$directory\
+[](fg:neon bg:pink)\
+$git_branch\
+$git_status\
+[](fg:pink bg:cyan)\
+$c\
+$rust\
+$golang\
+$nodejs\
+$python\
+$docker_context\
+[](fg:cyan bg:mantle)\
+$cmd_duration\
+$time\
+[ ](fg:mantle)\
+$line_break$character"""
+
+[palettes.cyberpunk_neon]
+base   = "#000b1e"
+mantle = "#0a1428"
+dim    = "#133e7c"
+text   = "#d7fffe"
+neon   = "#00ff9f"
+cyan   = "#00b8ff"
+teal   = "#0abdc6"
+pink   = "#ea00d9"
+red    = "#ff2a6d"
+yellow = "#f9f002"
+
+[os]
+disabled = false
+style = "bg:neon fg:base"
+format = "[$symbol]($style)"
+
+[os.symbols]
+Arch = " "
+Linux = " "
+
+[username]
+show_always = true
+style_user = "bg:neon fg:base bold"
+style_root = "bg:neon fg:red bold"
+format = "[$user ]($style)"
+
+[directory]
+style = "bg:neon fg:base bold"
+format = "[ $path ]($style)[$read_only]($read_only_style)"
+read_only = " 󰌾"
+read_only_style = "bg:neon fg:red"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+symbol = ""
+style = "bg:pink"
+format = "[[ $symbol $branch ](fg:base bg:pink bold)]($style)"
+
+[git_status]
+style = "bg:pink"
+format = "[[($all_status$ahead_behind )](fg:base bg:pink bold)]($style)"
+
+[c]
+symbol = " "
+style = "bg:cyan"
+format = "[[ $symbol( $version) ](fg:base bg:cyan)]($style)"
+
+[rust]
+symbol = ""
+style = "bg:cyan"
+format = "[[ $symbol( $version) ](fg:base bg:cyan)]($style)"
+
+[golang]
+symbol = ""
+style = "bg:cyan"
+format = "[[ $symbol( $version) ](fg:base bg:cyan)]($style)"
+
+[nodejs]
+symbol = ""
+style = "bg:cyan"
+format = "[[ $symbol( $version) ](fg:base bg:cyan)]($style)"
+
+[python]
+symbol = ""
+style = "bg:cyan"
+format = "[[ $symbol( $version)( \\($virtualenv\\)) ](fg:base bg:cyan)]($style)"
+
+[docker_context]
+symbol = ""
+style = "bg:cyan"
+format = "[[ $symbol( $context) ](fg:base bg:cyan)]($style)"
+
+[cmd_duration]
+min_time = 2000
+style = "bg:mantle"
+format = "[[ 󰔟 $duration ](fg:yellow bg:mantle)]($style)"
+
+[time]
+disabled = false
+time_format = "%R"
+style = "bg:mantle"
+format = "[[  $time ](fg:neon bg:mantle)]($style)"
+
+[line_break]
+disabled = false
+
+[character]
+success_symbol = "[❯](bold fg:neon)"
+error_symbol = "[❯](bold fg:red)"
+vimcmd_symbol = "[❮](bold fg:cyan)"

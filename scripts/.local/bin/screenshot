@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# screenshot region|annotate|full
+set -euo pipefail
+DIR="$HOME/Pictures/screenshots"; mkdir -p "$DIR"
+case "${1:-region}" in
+    region)
+        grim -g "$(slurp)" - | wl-copy --type image/png
+        notify-send -a screenshot -i camera-photo "Screenshot" "Region copied to clipboard" ;;
+    annotate)
+        grim -g "$(slurp)" - | swappy -f - ;;
+    full)
+        f="$DIR/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png"
+        grim "$f"
+        notify-send -a screenshot -i "$f" "Screenshot saved" "$f" ;;
+    *) echo "usage: screenshot region|annotate|full" >&2; exit 2 ;;
+esac
