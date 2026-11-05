@@ -86,10 +86,10 @@ AUR:
 yay -S catppuccin-gtk-theme-mocha catppuccin-cursors-mocha wlogout
 ```
 
-Dotfiles:
+Dotfiles. Clone into `~/dotfiles`, not `~/archbtw`. Stow links everything relative to that path, and `install-root.sh` expects it there.
 
 ```sh
-git clone https://github.com/erickalessandrini/dotfiles.git ~/dotfiles
+git clone https://github.com/erickalessandrini/archbtw.git ~/dotfiles
 cd ~/dotfiles
 stow awww btop cava fastfetch gtk hypr hyprlock kitty mako rofi scripts starship swappy swayosd waybar wlogout zsh
 ```
