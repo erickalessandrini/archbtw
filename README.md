@@ -112,3 +112,7 @@ Optional, root-level (greetd, Plymouth theme, kernel cmdline, initramfs). Read i
 ```sh
 sudo bash ~/dotfiles/system/install-root.sh
 ```
+
+## License
+
+MIT, see [LICENSE](LICENSE).
